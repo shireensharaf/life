@@ -25,3 +25,6 @@ def position_true(l):
                 pos.append(p)
     return pos
 
+def neighbours(l, x):
+    
+    return 0
