@@ -12,3 +12,6 @@ def grid_view(rows,cols, l):
         l2.append(l1)
     return l2
 
+
+def neighbours(l):
+    return 0
