@@ -5,9 +5,10 @@ def grid_view(rows,cols, l):
         l1 = []
         for j in range(0, cols):
             if(col_count in l):
-                l1.append('*')
+                l1.append(True)
             else:
-                l1.append('-')
+                l1.append(False)
             col_count += 1
         l2.append(l1)
     return l2
+
