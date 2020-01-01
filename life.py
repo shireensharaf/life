@@ -15,5 +15,13 @@ def grid_view(l):
 
 
 def position_true(l):
-    return [[0,0],[0,2],[2,1]]
+    pos = []
+    for i in range(0, max_len):
+        for j in range(0, max_len):
+            p = []
+            if(l[i][j] == True):
+                p.append(i)
+                p.append(j)
+                pos.append(p)
+    return pos
 
