@@ -1,9 +1,10 @@
-def grid_view(rows,cols, l):
+max_len = 4
+def grid_view(l):
     col_count = 0
     l2 =[]
-    for i in range(0,rows):
+    for i in range(0, max_len):
         l1 = []
-        for j in range(0, cols):
+        for j in range(0, max_len):
             if(col_count in l):
                 l1.append(True)
             else:
@@ -12,6 +13,3 @@ def grid_view(rows,cols, l):
         l2.append(l1)
     return l2
 
-
-def neighbours(l):
-    return 0
