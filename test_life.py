@@ -17,3 +17,8 @@ def test_position_of_true():
                                 [False, False, False,False]]) == [[0,0],[0,2],[2,1]]
 
 
+def test_no_neighbour():
+    assert life.neighbours( [[ True, False,True, False],
+                                [ False,False, False, False],
+                                [ False, True, False, False],
+                                [False, False, False,False]], [[0,0],[0,2],[2,1]]) == 0
