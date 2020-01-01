@@ -13,3 +13,7 @@ def grid_view(l):
         l2.append(l1)
     return l2
 
+
+def position_true(l):
+    return [[0,0],[0,2],[2,1]]
+
