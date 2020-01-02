@@ -20,11 +20,69 @@ def position_true(l):
         for j in range(0, max_len):
             p = []
             if(l[i][j] == True):
-                p.append(i)
-                p.append(j)
+                p.extend([i,j])
                 pos.append(p)
     return pos
 
-def neighbours(l, x):
+def neighbours(l,i):
+    t = []
+    f = []
+    if (i[1]-1 >= 0 and i[0]-1 >= 0 and l[i[0]-1][i[1]-1] == True):
+        t.append('y')
+    elif (i[1]-1 >= 0 and i[0]-1 >= 0 and l[i[0]-1][i[1]-1] == False):
+        p=[]
+        p.extend([i[0]-1,i[1]-1])
+        f.append(p)
+        
+    if (i[0]-1 >= 0 and l[i[0]-1][i[1]] == True):
+        t.append('y')
+    elif (i[0]-1 >= 0 and l[i[0]-1][i[1]] == False):
+        p=[]
+        p.extend([i[0]-1, i[1]])
+        f.append(p)
+                
+    if (i[1]+1 <= max_len and i[0]-1 >= 0 and l[i[0]-1][i[1]+1] == True):
+        t.append('y')
+    elif (i[1]+1 <= max_len and i[0]-1 >= 0 and l[i[0]-1][i[1]+1] == False):
+        p=[]
+        p.extend([i[0]-1, i[1]+1])
+        f.append(p)
+
+    if (i[1]-1 >= 0 and l[i[0]][i[1]-1] == True):
+        t.append('y')
+    elif (i[1]-1 >= 0 and l[i[0]][i[1]-1] == False):
+        p=[]
+        p.extend([i[0], i[1]-1])
+        f.append(p)
+        
+    if (i[1]+1 <= max_len and l[i[0]][i[1]+1] == True):
+        t.append('y')
+    elif (i[1]+1 <= max_len and l[i[0]][i[1]+1] == False):
+        p=[]
+        p.extend([i[0], i[1]+1])
+        f.append(p)
+        
+    if (i[1]-1 >= 0 and i[0]+1 <= max_len and l[i[0]+1][i[1]-1] == True):
+        t.append('y')
+    elif (i[1]-1 >= 0 and i[0]+1 <= max_len and l[i[0]+1][i[1]-1] == False):
+        p=[]
+        p.extend([i[0]+1, i[1]-1])
+        f.append(p)
+
+    if (i[0]+1 <= max_len and l[i[0]+1][i[1]] == True):
+        t.append('y')
+    elif (i[0]+1 <= max_len and l[i[0]+1][i[1]] == False):
+        p=[]
+        p.extend([i[0]+1, i[1]])
+        f.append(p)
+               
+    if (i[1]+1 <= max_len and i[0]+1 <= max_len and l[i[0]+1][i[1]+1] == True):
+        t.append('y')
+    elif (i[1]+1 <= max_len and i[0]+1 <= max_len and l[i[0]+1][i[1]+1] == False):
+        p=[]
+        p.extend([i[0]+1, i[1]+1])
+        f.append(p)
     
-    return 0
+    return len(t), f
+
+
