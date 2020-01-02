@@ -58,3 +58,13 @@ def test_status_change():
                                [ False,True, False, False],
                                [ False, True, False, False],
                                [False, False, False,False]]
+
+def test_view_no_true():
+     assert life.view( [[ False, False, False, False],
+                               [ False, False, False, False],
+                               [ False, False, False, False],
+                               [False, False, False,False]]) ==''' - - - -
+     - - - -
+     - - - -
+     - - - - '''
+                               
