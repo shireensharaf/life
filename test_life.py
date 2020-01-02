@@ -60,20 +60,24 @@ def test_status_change():
                                [False, False, False,False]]
 
 def test_view_no_true():
+     expected_value = ''' -  -  -  - 
+ -  -  -  - 
+ -  -  -  - 
+ -  -  -  - 
+'''
      assert life.view( [[ False, False, False, False],
                                [ False, False, False, False],
                                [ False, False, False, False],
-                               [False, False, False,False]]) ==''' - - - -
- - - - -
- - - - -
- - - - - '''
+                               [False, False, False,False]]) == expected_value
 
 def test_view_multiple_true():
+     expected_value = ''' -  -  -  - 
+ *  *  *  - 
+ -  -  -  - 
+ -  -  -  - 
+'''
      assert life.view( [[ False, False, False, False],
                                [ True, True, True, False],
                                [ False, False, False, False],
-                               [False, False, False,False]]) ==''' - - - -
- * * * -
- - - - -
- - - - - '''
+                               [False, False, False,False]]) == expected_value
                                

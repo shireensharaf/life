@@ -114,7 +114,12 @@ def change_status(l):
     return new_l
 
 def view(l):
-    return ''' - - - -
- - - - -
- - - - -
- - - - - '''
+    new_l = []
+    for i in range(0, max_len):
+        for j in range(0, max_len):
+            if(l[i][j] == True):
+                new_l.append(' * ')
+            else:
+                new_l.append(' - ')
+        new_l.append('\n')
+    return '''{}'''.format(''.join(new_l))
