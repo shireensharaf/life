@@ -64,7 +64,7 @@ def test_view_no_true():
                                [ False, False, False, False],
                                [ False, False, False, False],
                                [False, False, False,False]]) ==''' - - - -
-     - - - -
-     - - - -
-     - - - - '''
+ - - - -
+ - - - -
+ - - - - '''
                                

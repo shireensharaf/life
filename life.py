@@ -112,4 +112,9 @@ def change_status(l):
            new_l[key[0]][key[1]]=True
 
     return new_l
-    
+
+def view(l):
+    return ''' - - - -
+ - - - -
+ - - - -
+ - - - - '''
