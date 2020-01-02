@@ -1,3 +1,4 @@
+from collections import Counter
 max_len = 4
 def grid_view(l):
     col_count = 0
@@ -42,7 +43,7 @@ def neighbours(l,i):
             p.extend([i[0]-1, i[1]])
             f.append(p)
                 
-    if (i[1]+1 <= max_len and i[0]-1 >= 0):
+    if (i[1]+1 < max_len and i[0]-1 >= 0):
         if( l[i[0]-1][i[1]+1] == True):
             t.append('y')
         elif (l[i[0]-1][i[1]+1] == False):
@@ -58,7 +59,7 @@ def neighbours(l,i):
             p.extend([i[0], i[1]-1])
             f.append(p)
         
-    if (i[1]+1 <= max_len):
+    if (i[1]+1 < max_len):
         if(l[i[0]][i[1]+1] == True):
             t.append('y')
         elif (l[i[0]][i[1]+1] == False):
@@ -66,7 +67,7 @@ def neighbours(l,i):
             p.extend([i[0], i[1]+1])
             f.append(p)
         
-    if (i[1]-1 >= 0 and i[0]+1 <= max_len):
+    if (i[1]-1 >= 0 and i[0]+1 < max_len):
         if(l[i[0]+1][i[1]-1] == True):
             t.append('y')
         elif (l[i[0]+1][i[1]-1] == False):
@@ -74,7 +75,7 @@ def neighbours(l,i):
             p.extend([i[0]+1, i[1]-1])
             f.append(p)
 
-    if (i[0]+1 <= max_len):
+    if (i[0]+1 < max_len):
         if(l[i[0]+1][i[1]] == True):
             t.append('y')
         elif (l[i[0]+1][i[1]] == False):
@@ -82,7 +83,7 @@ def neighbours(l,i):
             p.extend([i[0]+1, i[1]])
             f.append(p)
                
-    if (i[1]+1 <= max_len and i[0]+1 <= max_len):
+    if (i[1]+1 < max_len and i[0]+1 < max_len):
         if(l[i[0]+1][i[1]+1] == True):
             t.append('y')
         elif (l[i[0]+1][i[1]+1] == False):
@@ -94,8 +95,21 @@ def neighbours(l,i):
 
 
 def change_status(l):
-    return [[ True, True, False, False],
-                               [ True,True, False, False],
-                               [ False, False, False, False],
-                               [False, False, False,False]]
+    new_l = l.copy()
+    x = position_true(l)
+    false_nb = []
+    die = []
+    for i in x:
+        true_cells, false_cells = neighbours(l,i)
+        if(true_cells < 2 or true_cells > 3):
+            die.append(i)
+        false_nb.extend(false_cells)
+    for i in die:
+        l[i[0]][i[1]] = False
+    count = Counter([tuple(i) for i in false_nb])
+    for key, value in count.items():
+        if (value == 3):
+           new_l[key[0]][key[1]]=True
+
+    return new_l
     

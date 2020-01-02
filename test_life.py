@@ -51,10 +51,10 @@ def test_no_status_change():
                                [False, False, False,False]]
    
 def test_status_change():
-    assert life.change_status( [[ True, True, False, False],
+    assert life.change_status( [[ False, False, False, False],
                                [ True,True, True, False],
                                [ False, False, False, False],
-                               [False, False, False,False]]) == [[ True, True, False, False],
-                               [ True,False, True, False],
-                               [ False, False, False, False],
+                               [False, False, False,False]]) == [[  False, True, False, False],
+                               [ False,True, False, False],
+                               [ False, True, False, False],
                                [False, False, False,False]]
