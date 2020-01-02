@@ -13,7 +13,6 @@ def grid_view(l):
         l2.append(l1)
     return l2
 
-
 def position_true(l):
     pos = []
     for i in range(0, max_len):
@@ -27,62 +26,69 @@ def position_true(l):
 def neighbours(l,i):
     t = []
     f = []
-    if (i[1]-1 >= 0 and i[0]-1 >= 0 and l[i[0]-1][i[1]-1] == True):
-        t.append('y')
-    elif (i[1]-1 >= 0 and i[0]-1 >= 0 and l[i[0]-1][i[1]-1] == False):
-        p=[]
-        p.extend([i[0]-1,i[1]-1])
-        f.append(p)
+    if (i[1]-1 >= 0 and i[0]-1 >= 0):
+        if( l[i[0]-1][i[1]-1] == True):
+            t.append('y')
+        elif (l[i[0]-1][i[1]-1] == False):
+            p=[]
+            p.extend([i[0]-1,i[1]-1])
+            f.append(p)
         
-    if (i[0]-1 >= 0 and l[i[0]-1][i[1]] == True):
-        t.append('y')
-    elif (i[0]-1 >= 0 and l[i[0]-1][i[1]] == False):
-        p=[]
-        p.extend([i[0]-1, i[1]])
-        f.append(p)
+    if (i[0]-1 >= 0):
+        if(l[i[0]-1][i[1]] == True):
+            t.append('y')
+        elif (l[i[0]-1][i[1]] == False):
+            p=[]
+            p.extend([i[0]-1, i[1]])
+            f.append(p)
                 
-    if (i[1]+1 <= max_len and i[0]-1 >= 0 and l[i[0]-1][i[1]+1] == True):
-        t.append('y')
-    elif (i[1]+1 <= max_len and i[0]-1 >= 0 and l[i[0]-1][i[1]+1] == False):
-        p=[]
-        p.extend([i[0]-1, i[1]+1])
-        f.append(p)
+    if (i[1]+1 <= max_len and i[0]-1 >= 0):
+        if( l[i[0]-1][i[1]+1] == True):
+            t.append('y')
+        elif (l[i[0]-1][i[1]+1] == False):
+            p=[]
+            p.extend([i[0]-1, i[1]+1])
+            f.append(p)
 
-    if (i[1]-1 >= 0 and l[i[0]][i[1]-1] == True):
-        t.append('y')
-    elif (i[1]-1 >= 0 and l[i[0]][i[1]-1] == False):
-        p=[]
-        p.extend([i[0], i[1]-1])
-        f.append(p)
+    if (i[1]-1 >= 0):
+        if( l[i[0]][i[1]-1] == True):
+            t.append('y')
+        elif (l[i[0]][i[1]-1] == False):
+            p=[]
+            p.extend([i[0], i[1]-1])
+            f.append(p)
         
-    if (i[1]+1 <= max_len and l[i[0]][i[1]+1] == True):
-        t.append('y')
-    elif (i[1]+1 <= max_len and l[i[0]][i[1]+1] == False):
-        p=[]
-        p.extend([i[0], i[1]+1])
-        f.append(p)
+    if (i[1]+1 <= max_len):
+        if(l[i[0]][i[1]+1] == True):
+            t.append('y')
+        elif (l[i[0]][i[1]+1] == False):
+            p=[]
+            p.extend([i[0], i[1]+1])
+            f.append(p)
         
-    if (i[1]-1 >= 0 and i[0]+1 <= max_len and l[i[0]+1][i[1]-1] == True):
-        t.append('y')
-    elif (i[1]-1 >= 0 and i[0]+1 <= max_len and l[i[0]+1][i[1]-1] == False):
-        p=[]
-        p.extend([i[0]+1, i[1]-1])
-        f.append(p)
+    if (i[1]-1 >= 0 and i[0]+1 <= max_len):
+        if(l[i[0]+1][i[1]-1] == True):
+            t.append('y')
+        elif (l[i[0]+1][i[1]-1] == False):
+            p=[]
+            p.extend([i[0]+1, i[1]-1])
+            f.append(p)
 
-    if (i[0]+1 <= max_len and l[i[0]+1][i[1]] == True):
-        t.append('y')
-    elif (i[0]+1 <= max_len and l[i[0]+1][i[1]] == False):
-        p=[]
-        p.extend([i[0]+1, i[1]])
-        f.append(p)
+    if (i[0]+1 <= max_len):
+        if(l[i[0]+1][i[1]] == True):
+            t.append('y')
+        elif (l[i[0]+1][i[1]] == False):
+            p=[]
+            p.extend([i[0]+1, i[1]])
+            f.append(p)
                
-    if (i[1]+1 <= max_len and i[0]+1 <= max_len and l[i[0]+1][i[1]+1] == True):
-        t.append('y')
-    elif (i[1]+1 <= max_len and i[0]+1 <= max_len and l[i[0]+1][i[1]+1] == False):
-        p=[]
-        p.extend([i[0]+1, i[1]+1])
-        f.append(p)
+    if (i[1]+1 <= max_len and i[0]+1 <= max_len):
+        if(l[i[0]+1][i[1]+1] == True):
+            t.append('y')
+        elif (l[i[0]+1][i[1]+1] == False):
+            p=[]
+            p.extend([i[0]+1, i[1]+1])
+            f.append(p)
     
     return len(t), f
-
 

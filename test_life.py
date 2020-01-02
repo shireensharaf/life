@@ -41,3 +41,12 @@ def test_3_neighbours():
    assert nb_num == 3
    assert  false_nb == [[0,1],[1,0],[1,2],[2,0],[2,2]]
 
+def test_no_status_change():
+   assert life.change_status( [[ True, True, False, False],
+                               [ True,True, False, False],
+                               [ False, False, False, False],
+                               [False, False, False,False]]) == [[ True, True, False, False],
+                               [ True,True, False, False],
+                               [ False, False, False, False],
+                               [False, False, False,False]]
+   
