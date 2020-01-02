@@ -67,4 +67,13 @@ def test_view_no_true():
  - - - -
  - - - -
  - - - - '''
+
+def test_view_multiple_true():
+     assert life.view( [[ False, False, False, False],
+                               [ True, True, True, False],
+                               [ False, False, False, False],
+                               [False, False, False,False]]) ==''' - - - -
+ * * * -
+ - - - -
+ - - - - '''
                                
