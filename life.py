@@ -92,3 +92,10 @@ def neighbours(l,i):
     
     return len(t), f
 
+
+def change_status(l):
+    return [[ True, True, False, False],
+                               [ True,True, False, False],
+                               [ False, False, False, False],
+                               [False, False, False,False]]
+    
